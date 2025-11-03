@@ -31,8 +31,6 @@ jobs:
 
       - name: Build the book
         run: |
-          cd $GITHUB_WORKSPACE
-          cd Vision  # replace with your actual folder name if needed
           ls -al
           jupyter-book build .
 
