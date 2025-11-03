@@ -25,7 +25,10 @@ jobs:
       - name: Install jupyter-book
         run: pip install -U jupyter-book
       - name: Build the book
-        run: jupyter-book build .
+        run: |
+          ls -al
+          jupyter-book build .
+    jupyter-book build .
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
