@@ -18,17 +18,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - name: Install jupyter-book
         run: pip install -U jupyter-book
+
       - name: Build the book
         run: |
+          cd $GITHUB_WORKSPACE
+          cd Vision  # replace with your actual folder name if needed
           ls -al
           jupyter-book build .
-    jupyter-book build .
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
